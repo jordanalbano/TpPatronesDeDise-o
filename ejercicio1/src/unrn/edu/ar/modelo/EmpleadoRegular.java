@@ -1,7 +1,6 @@
 package unrn.edu.ar.modelo;
 
-public class EmpleadoRegular implements Empleado {
-
+public class EmpleadoRegular implements InterfaceEmpleado {
 	private double salario;
 
 	public EmpleadoRegular(double salario) {
@@ -10,8 +9,7 @@ public class EmpleadoRegular implements Empleado {
 
 	@Override
 	public double calcularMontoTotalSalarial() {
-
-		return this.salario;
+		return salario;
 	}
 
 }

@@ -4,32 +4,40 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import unrn.edu.ar.modelo.Director;
+import unrn.edu.ar.modelo.Empleado;
 import unrn.edu.ar.modelo.EmpleadoRegular;
-import unrn.edu.ar.modelo.Gerente;
-import unrn.edu.ar.modelo.LiderDeProyecto;
-import unrn.edu.ar.modelo.MandoMedio;
 
 class EmpleadoTest {
 
 	@Test
-	void testCalcularMontoTotalSalarialDesdeDirector() {
-		EmpleadoRegular empleado = new EmpleadoRegular(1000);
-		LiderDeProyecto lider = new LiderDeProyecto(empleado, 2000);
-		MandoMedio mandoMedio = new MandoMedio(lider, 3000);
-		Gerente gerente = new Gerente(mandoMedio, 4000);
-		Director director = new Director(gerente, 5000);
-		assertEquals(director.calcularMontoTotalSalarial(), 15000.0, 0.0);
+	void calcularSalarioDesdeDirector() {
+		EmpleadoRegular empleadoNormal = new EmpleadoRegular(2000);
 
+		Empleado empleadoLider = new Empleado(2500);
+		Empleado empleadoMandoMedio = new Empleado(3500);
+		Empleado empleadoGerente = new Empleado(4000);
+		Empleado empleadoGerente2 = new Empleado(4000);
+		Empleado empleadoDirector = new Empleado(5000);
+		empleadoDirector.agregarEmpleado(empleadoGerente);
+		empleadoDirector.agregarEmpleado(empleadoGerente2);
+		empleadoGerente.agregarEmpleado(empleadoMandoMedio);
+		empleadoMandoMedio.agregarEmpleado(empleadoLider);
+		empleadoLider.agregarEmpleado(empleadoNormal);
+		assertEquals(21000, empleadoDirector.calcularMontoTotalSalarial());
 	}
 
 	@Test
-	void testCalcularMontoTotalSalarialDesdeGerente() {
-		EmpleadoRegular empleado = new EmpleadoRegular(1000);
-		LiderDeProyecto lider = new LiderDeProyecto(empleado, 2000);
-		MandoMedio mandoMedio = new MandoMedio(lider, 3000);
-		Gerente gerente = new Gerente(mandoMedio, 4000);
-		assertEquals(gerente.calcularMontoTotalSalarial(), 10000.0, 0.0);
+	void calcularSalarioDesdeGerente() {
+		EmpleadoRegular empleadoNormal = new EmpleadoRegular(2000);
+		Empleado empleadoLider = new Empleado(2500);
+		Empleado empleadoMandoMedio = new Empleado(3500);
+		Empleado empleadoGerente = new Empleado(4000);
+		Empleado empleadoDirector = new Empleado(5000);
+		empleadoDirector.agregarEmpleado(empleadoGerente);
+		empleadoGerente.agregarEmpleado(empleadoMandoMedio);
+		empleadoMandoMedio.agregarEmpleado(empleadoLider);
+		empleadoLider.agregarEmpleado(empleadoNormal);
+		assertEquals(12000, empleadoGerente.calcularMontoTotalSalarial());
 
 	}
 }
