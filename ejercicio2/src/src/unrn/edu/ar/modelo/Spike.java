@@ -3,7 +3,7 @@ package src.unrn.edu.ar.modelo;
 public class Spike implements InterfaceItem {
 	private int tiempo;
 
-	public Spike(double tiempo) {
+	public Spike(int tiempo) {
 		this.tiempo = tiempo;
 	}
 
@@ -11,6 +11,12 @@ public class Spike implements InterfaceItem {
 	public int calcularTiempoFinalizacion() {
 
 		return tiempo;
+	}
+
+	@Override
+	public void agregarItem(InterfaceItem item) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

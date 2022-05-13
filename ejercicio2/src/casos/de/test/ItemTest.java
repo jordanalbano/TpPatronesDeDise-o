@@ -2,25 +2,44 @@ package casos.de.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 import org.junit.jupiter.api.Test;
 
-import src.unrn.edu.ar.modelo.HistoriaDeUsuario;
+import src.unrn.edu.ar.modelo.InterfaceItem;
+import src.unrn.edu.ar.modelo.Item;
+import src.unrn.edu.ar.modelo.Scrum;
 import src.unrn.edu.ar.modelo.Spike;
-import src.unrn.edu.ar.modelo.Tarea;
+
+
 
 class ItemTest {
 
 	@Test
 	void testCalcularTiempoFinalizacionHU() {
-		Tarea tarea = new Tarea(10.0);
-		HistoriaDeUsuario historia = new HistoriaDeUsuario(tarea, 20.0);
-		assertEquals(30.0, historia.calcularTiempoFinalizacion(), 0.0);
+		Item tarea = new Item(10);
+		Item tarea2 = new Item(10);
+		Item tarea3 = new Item(10);
+		Item historia = new Item( 20);
+		historia.agregarItem(tarea);
+		historia.agregarItem(tarea2);
+		historia.agregarItem(tarea3);
+		
+		assertEquals(30.0, historia.calcularTiempoFinalizacion(), 30);
 	}
 	@Test
-	void testCalcularTiempoFinalizacionSpike() {
-		Spike spike = new Spike(3.0);
-		
-		assertEquals(3.0, spike.calcularTiempoFinalizacion(), 0.0);
+	void testCalcularTiempoFinalizacionScrum() {
+		Item tarea = new Item(10);
+		Item tarea2 = new Item(10);
+		Item tarea3 = new Item(10);
+		Item historiaDeUsuario = new Item( 20);
+		historiaDeUsuario.agregarItem(tarea);
+		historiaDeUsuario.agregarItem(tarea2);
+		historiaDeUsuario.agregarItem(tarea3);
+		InterfaceItem scrum = new Scrum();
+		InterfaceItem spike = new Spike(3);	
+		scrum.agregarItem(spike);
+		scrum.agregarItem(historiaDeUsuario);
+		assertEquals(spike.calcularTiempoFinalizacion(), spike.calcularTiempoFinalizacion(), 33);
 	}
 
 }
