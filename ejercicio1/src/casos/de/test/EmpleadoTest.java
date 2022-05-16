@@ -8,11 +8,11 @@ import unrn.edu.ar.modelo.Empleado;
 import unrn.edu.ar.modelo.EmpleadoRegular;
 
 class EmpleadoTest {
-
+	// se valida de otra manera
 	@Test
 	void calcularSalarioDesdeDirector() {
-		EmpleadoRegular empleadoNormal = new EmpleadoRegular(2000);
 
+		EmpleadoRegular empleadoNormal = new EmpleadoRegular(2000);
 		Empleado empleadoLider = new Empleado(2500);
 		Empleado empleadoMandoMedio = new Empleado(3500);
 		Empleado empleadoGerente = new Empleado(4000);
@@ -26,6 +26,9 @@ class EmpleadoTest {
 		assertEquals(21000, empleadoDirector.calcularMontoTotalSalarial());
 	}
 
+	// 1 solo
+	// interfaz de mail
+	// interfaz de proceso
 	@Test
 	void calcularSalarioDesdeGerente() {
 		EmpleadoRegular empleadoNormal = new EmpleadoRegular(2000);

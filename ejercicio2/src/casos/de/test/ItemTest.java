@@ -4,23 +4,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import src.unrn.edu.ar.modelo.HistoriaDeUsuario;
+import src.unrn.edu.ar.modelo.Item;
 import src.unrn.edu.ar.modelo.Spike;
-import src.unrn.edu.ar.modelo.Tarea;
 
 class ItemTest {
 
 	@Test
 	void testCalcularTiempoFinalizacionHU() {
-		Tarea tarea = new Tarea(10.0);
-		HistoriaDeUsuario historia = new HistoriaDeUsuario(tarea, 20.0);
-		assertEquals(30.0, historia.calcularTiempoFinalizacion(), 0.0);
+		Item historiaDeUsuario = new Item(6);
+		Item tarea1 = new Item(1);
+		Item tarea2 = new Item(2);
+		Item tarea3 = new Item(3);
+		historiaDeUsuario.agregarItem(tarea1);
+		historiaDeUsuario.agregarItem(tarea2);
+		historiaDeUsuario.agregarItem(tarea3);
+		assertEquals(historiaDeUsuario.calcularTiempoFinalizacion(), 12);
 	}
+
 	@Test
 	void testCalcularTiempoFinalizacionSpike() {
-		Spike spike = new Spike(3.0);
-		
-		assertEquals(3.0, spike.calcularTiempoFinalizacion(), 0.0);
+		Spike spike = new Spike(6);
+
 	}
 
 }

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Item implements InterfaceItem {
-	List<InterfaceItem> items;
+	List<Item> items;
 	private int tiempo;
 
 	public Item(int tiempo) {
 		this.tiempo = tiempo;
-		items = new ArrayList<InterfaceItem>();
+		items = new ArrayList<Item>();
 	}
 
 	public void agregarItem(Item item) {
@@ -19,6 +19,12 @@ public class Item implements InterfaceItem {
 	@Override
 	public int calcularTiempoFinalizacion() {
 		return (int) this.tiempo + this.items.stream().mapToInt(i -> i.calcularTiempoFinalizacion()).sum();
+	}
+
+	@Override
+	public int tiempo() {
+
+		return this.tiempo;
 	}
 
 }
