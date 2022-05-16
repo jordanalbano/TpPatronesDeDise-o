@@ -8,6 +8,7 @@ public class Item implements InterfaceItem {
 	private int tiempo;
 
 	public Item(int tiempo) {
+		//
 		this.tiempo = tiempo;
 		items = new ArrayList<InterfaceItem>();
 	}
