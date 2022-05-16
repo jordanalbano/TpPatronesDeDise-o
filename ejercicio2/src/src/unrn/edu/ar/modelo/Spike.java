@@ -10,19 +10,13 @@ public class Spike implements InterfaceItem {
 	@Override
 	public int calcularTiempoFinalizacion() {
 
-		return this.tiempo();
+		return tiempo;
 	}
 
 	@Override
-	public void agregarItem(Item item) {
-		// TODO Esbozo de método generado automáticamente
+	public void agregarItem(InterfaceItem item) {
+		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public int tiempo() {
-
-		return this.tiempo;
 	}
 
 }
