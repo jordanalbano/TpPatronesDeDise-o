@@ -4,4 +4,5 @@ public interface InterfaceItem {
 	int calcularTiempoFinalizacion();
 
 	void agregarItem(InterfaceItem item);
+
 }

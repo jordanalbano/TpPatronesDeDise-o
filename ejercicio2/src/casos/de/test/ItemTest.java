@@ -35,6 +35,7 @@ class ItemTest {
 		historiaDeUsuario.agregarItem(tarea3);
 		InterfaceItem scrum = new Scrum();
 		InterfaceItem spike = new Spike(3);
+
 		scrum.agregarItem(spike);
 		scrum.agregarItem(historiaDeUsuario);
 		assertEquals(spike.calcularTiempoFinalizacion(), spike.calcularTiempoFinalizacion(), 33);
